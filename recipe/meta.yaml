@@ -31,8 +31,9 @@ build:
 outputs:
   - name: stackvana-core
     version: {{ version }}
-    run_exports:
-      - {{ pin_subpackage('stackvana-core-impl', exact=True) }}
+    build:
+      run_exports:
+        - {{ pin_subpackage('stackvana-core-impl', exact=True) }}
     requirements:
       run:
         - python
