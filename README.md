@@ -55,6 +55,7 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stackvana--core-green.svg)](https://anaconda.org/conda-forge/stackvana-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stackvana-core.svg)](https://anaconda.org/conda-forge/stackvana-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stackvana-core.svg)](https://anaconda.org/conda-forge/stackvana-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stackvana-core.svg)](https://anaconda.org/conda-forge/stackvana-core) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stackvana--core--impl-green.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stackvana-core-impl.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stackvana-core-impl.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stackvana-core-impl.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-stackvana--make-green.svg)](https://anaconda.org/conda-forge/stackvana-make) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stackvana-make.svg)](https://anaconda.org/conda-forge/stackvana-make) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stackvana-make.svg)](https://anaconda.org/conda-forge/stackvana-make) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stackvana-make.svg)](https://anaconda.org/conda-forge/stackvana-make) |
 
 Installing stackvana-core
 =========================
@@ -65,10 +66,10 @@ Installing `stackvana-core` from the `conda-forge` channel can be achieved by ad
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `stackvana-core, stackvana-core-impl` can be installed with:
+Once the `conda-forge` channel has been enabled, `stackvana-core, stackvana-core-impl, stackvana-make` can be installed with:
 
 ```
-conda install stackvana-core stackvana-core-impl
+conda install stackvana-core stackvana-core-impl stackvana-make
 ```
 
 It is possible to list all of the versions of `stackvana-core` available on your platform with:
