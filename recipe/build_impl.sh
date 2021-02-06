@@ -111,7 +111,8 @@ done
 
 echo "
 Building sconsUtils..."
-STACKVANA_ACTIVATED=1 stackvana-make sconsUtils
+export STACKVANA_ACTIVATED=1
+stackvana-make sconsUtils
 
 echo "Patching sconsUtils for debugging..."
 if [[ `uname -s` == "Darwin" ]]; then
