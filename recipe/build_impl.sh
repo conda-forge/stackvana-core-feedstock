@@ -105,16 +105,13 @@ for CHANGE in "activate" "deactivate"; do
     cp "${RECIPE_DIR}/${CHANGE}.sh" "${PREFIX}/etc/conda/${CHANGE}.d/${PKG_NAME}_${CHANGE}.sh"
 done
 
-cp ${RECIPE_DIR}/stackvana-build ${PREFIX}/bin/stackvana-build
-chmod u+x ${PREFIX}/bin/stackvana-build
-
 ###############################################################################
 # now install sconsUtils
 # this brings most of the basic build tools into the env and lets us patch it
 
 echo "
 Building sconsUtils..."
-eups distrib install -v -t ${LSST_TAG} sconsUtils
+stackvana-make sconsUtils
 
 echo "Patching sconsUtils for debugging..."
 if [[ `uname -s` == "Darwin" ]]; then
@@ -132,46 +129,3 @@ if [[ "$?" != "0" ]]; then
     exit 1
 fi
 popd
-
-###############################################################################
-# now finalize the build
-
-# # now fix up the python paths
-# we set the python #! line by hand so that we get the right thing coming out
-# in conda build for large prefixes this always has /usr/bin/env python
-echo "
-Fixing the python scripts with shebangtron..."
-export SHTRON_PYTHON=${PYTHON}
-curl -sSL https://raw.githubusercontent.com/lsst/shebangtron/master/shebangtron | ${PYTHON}
-echo " "
-
-# clean out .pyc files made by eups installs
-# these cause problems later for a reason I don't understand
-# conda remakes them IIUIC
-for dr in ${LSST_HOME} ${PREFIX}/lib/python${LSST_PYVER}/site-packages; do
-    pushd $dr
-    if [[ `uname -s` == "Darwin" ]]; then
-        find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
-    else
-        find . -regex '^.*\(__pycache__\|\.py[co]\)$' -delete
-    fi
-    popd
-done
-
-# clean out any documentation
-# this bloats the packages, is usually a ton of files, and is not needed
-compgen -G "${EUPS_PATH}/*/*/*/tests/.tests/*" | xargs rm -rf
-compgen -G "${EUPS_PATH}/*/*/*/tests/*" | xargs rm -rf
-compgen -G "${EUPS_PATH}/*/*/*/bin.src/*" | xargs rm -rf
-compgen -G "${EUPS_PATH}/*/*/*/doc/html/*" | xargs rm -rf
-compgen -G "${EUPS_PATH}/*/*/*/doc/xml/*" | xargs rm -rf
-compgen -G "${EUPS_PATH}/*/*/*/share/doc/*" | xargs rm -rf
-compgen -G "${EUPS_PATH}/*/*/*/share/man/*" | xargs rm -rf
-
-# maybe this?
-echo "=================== eups list ==================="
-eups list -s --topological -D --raw 2>/dev/null
-echo "================================================="
-
-# remove the global tags file since it tends to leak across envs
-rm -f ${EUPS_DIR}/ups_db/global.tags
