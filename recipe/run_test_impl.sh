@@ -34,7 +34,7 @@ eups list:"
 
 # this should work
 echo "attempting to build 'pex_exceptions' ..."
-stackvana-build pex_exceptions
+stackvana-make pex_exceptions
 echo " "
 
 echo -n "setting up 'pex_exceptions' ... "

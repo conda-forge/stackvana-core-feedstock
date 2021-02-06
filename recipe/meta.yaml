@@ -56,6 +56,7 @@ outputs:
         - {{ compiler('cxx') }}
         - sysroot_linux-64 2.17.*  # [linux64]
         - rubin-env =={{ rubin_env_version }}
+        - {{ pin_subpackage('stackvana-make', exact=True) }}
       run:
         - python
         - rubin-env =={{ rubin_env_version }}
@@ -63,10 +64,23 @@ outputs:
       script: run_test_impl.sh
       requires:
         - python
-        - rubin-env
+        - rubin-env =={{ rubin_env_version }}
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - sysroot_linux-64 2.17.*  # [linux64]
+        - {{ pin_subpackage('stackvana-make', exact=True) }}
+
+  - name: stackvana-make
+    version: {{ version }}
+    script: build_make.sh
+    requirements:
+      host:
+        - python
+      run:
+        - python
+    test:
+      commands:
+        - test -f ${PREFIX}/bin/python*.bak
 
 about:
   home: https://github.com/beckermr/stackvana-core
