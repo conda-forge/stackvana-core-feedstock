@@ -8,9 +8,21 @@ if [[ `uname -s` == "Darwin" ]]; then
   mv ${CONDA_PREFIX}/bin/python${pyver} ${CONDA_PREFIX}/bin/python${pyver}.bak
   echo "\
 #!/bin/bash
-if [[ \${LSST_LIBRARY_PATH} ]]; then
-  DYLD_LIBRARY_PATH=\${LSST_LIBRARY_PATH} \\
-  DYLD_FALLBACK_LIBRARY_PATH=\${LSST_LIBRARY_PATH} \\
+if [[ \${LSST_LIBRARY_PATH:-} ]]; then
+  if [[ \${DYLD_LIBRARY_PATH:-} ]]; then
+    _dyld_extra=\":\${DYLD_LIBRARY_PATH}\"
+  else
+    _dyld_extra=\"\"
+  fi
+
+  if [[ \${DYLD_FALLBACK_LIBRARY_PATH:-} ]]; then
+    _dyld_fb_extra=\":\${DYLD_FALLBACK_LIBRARY_PATH}\"
+  else
+    _dyld_fb_extra=\"\"
+  fi
+
+  DYLD_LIBRARY_PATH=\${LSST_LIBRARY_PATH}\${_dyld_extra} \\
+  DYLD_FALLBACK_LIBRARY_PATH=\${LSST_LIBRARY_PATH}\${_dyld_fb_extra} \\
   python${pyver}.bak \"\$@\"
 else
   python${pyver}.bak \"\$@\"

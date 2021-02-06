@@ -25,14 +25,8 @@ source:
 
 build:
   skip: true  # [win or py != 38]
-  number: 0
+  number: 1
   merge_build_host: True
-
-requirements:
-  host:
-    - python
-  run:
-    - python
 
 outputs:
   - name: stackvana-core
@@ -40,8 +34,6 @@ outputs:
     run_exports:
       - {{ pin_subpackage('stackvana-core-impl', exact=True) }}
     requirements:
-      host:
-        - python
       run:
         - python
         - {{ pin_subpackage('stackvana-core-impl', exact=True) }}
