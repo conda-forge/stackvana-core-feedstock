@@ -13,9 +13,6 @@ export STACKVANA_ACTIVATED=1
 export STACKVANA_BACKUP_EUPS_PKGROOT=${EUPS_PKGROOT}
 export EUPS_PKGROOT="https://eups.lsst.codes/stack/src"
 
-# backup the python path since eups will muck with it
-export STACKVANA_BACKUP_PYTHONPATH=${PYTHONPATH}
-
 # backup the LD paths since the DM stack will muck with them
 export STACKVANA_BACKUP_LD_LIBRARY_PATH=${LD_LIBRARY_PATH}
 export STACKVANA_BACKUP_DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}
