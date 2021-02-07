@@ -3,7 +3,6 @@ unset STACKVANA_ACTIVATED
 
 # remove stackvana env changes
 for var in LSST_HOME LSST_PYVER LSST_DM_TAG \
-        PYTHONPATH \
         LD_LIBRARY_PATH DYLD_LIBRARY_PATH \
         LSST_LIBRARY_PATH \
         SCONSUTILS_USE_CONDA_COMPILERS \
