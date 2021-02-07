@@ -49,6 +49,7 @@ outputs:
       commands:
         - eups -h
         - eups list
+        - if [[ ! ${STACKVANA_ACTIVATED} ]]; then exit 1; fi
 
   - name: stackvana-core-impl
     version: {{ version }}
