@@ -25,7 +25,7 @@ source:
 
 build:
   skip: true  # [win or py != 38]
-  number: 0
+  number: 1
   merge_build_host: True
 
 requirements:
@@ -45,6 +45,11 @@ outputs:
       run:
         - python
         - {{ pin_subpackage('stackvana-core-impl', exact=True) }}
+    test:
+      commands:
+        - eups -h
+        - eups list
+        - if [[ ! ${STACKVANA_ACTIVATED} ]]; then exit 1; fi
 
   - name: stackvana-core-impl
     version: {{ version }}
