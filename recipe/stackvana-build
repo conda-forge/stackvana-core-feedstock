@@ -32,43 +32,6 @@ else
     export LDFLAGS="${LDFLAGS} -Wl,-rpath,${CONDA_PREFIX}/lib -Wl,-rpath-link,${CONDA_PREFIX}/lib -L${CONDA_PREFIX}/lib"
 fi
 
-verbose="-v"
-
-function _report_logs {
-    for fname in `compgen -G "${EUPS_PATH}/*/$1/*/ups/build.log"`; do
-        echo "================================================================="
-        echo "================================================================="
-        echo "================================================================="
-        echo "================================================================="
-        echo "${fname}:"
-        echo "================================================================="
-        echo "================================================================="
-        echo " "
-        cat ${fname}
-        echo " "
-        echo " "
-    done
-
-    for pth in "${EUPS_PATH}/EupsBuildDir/*/*/build.log" \
-        "${EUPS_PATH}/EupsBuildDir/*/*/*/config.log" \
-        "${EUPS_PATH}/EupsBuildDir/*/*/*/CMakeFiles/*.log"; do
-
-        for fname in `compgen -G $pth`; do
-            echo "================================================================="
-            echo "================================================================="
-            echo "================================================================="
-            echo "================================================================="
-            echo "${fname}:"
-            echo "================================================================="
-            echo "================================================================="
-            echo " "
-            cat ${fname}
-            echo " "
-            echo " "
-        done
-    done
-}
-
 function _report_errors {
     for pth in "${EUPS_PATH}/EupsBuildDir/*/*/build.log" \
         "${EUPS_PATH}/EupsBuildDir/*/*/*/config.log" \
@@ -88,6 +51,16 @@ function _report_errors {
             echo " "
         done
     done
+
+    # undo the shim
+    if [[ `uname -s` == "Darwin" ]]; then
+        echo "Undoing the OSX python shim..."
+        mv ${CONDA_PREFIX}/bin/python${LSST_PYVER}.bak ${CONDA_PREFIX}/bin/python${LSST_PYVER}
+        # leave behind a symlink just in case this path propagates?
+        # ln -s ${CONDA_PREFIX}/bin/python${LSST_PYVER} ${CONDA_PREFIX}/bin/python${LSST_PYVER}.bak
+        echo " "
+    fi
+
     exit 1
 }
 
@@ -114,7 +87,7 @@ fi
 
 echo "Running eups install..."
 {
-    eups distrib install ${verbose} -t ${LSST_DM_TAG} $@
+    eups distrib install -v -t ${LSST_DM_TAG} $@
 } || {
     _report_errors
 }
@@ -124,8 +97,8 @@ echo " "
 if [[ `uname -s` == "Darwin" ]]; then
     echo "Undoing the OSX python shim..."
     mv ${CONDA_PREFIX}/bin/python${LSST_PYVER}.bak ${CONDA_PREFIX}/bin/python${LSST_PYVER}
-    # leave behind a symlink just in case this path propagates
-    ln -s ${CONDA_PREFIX}/bin/python${LSST_PYVER} ${CONDA_PREFIX}/bin/python${LSST_PYVER}.bak
+    # leave behind a symlink just in case this path propagates?
+    # ln -s ${CONDA_PREFIX}/bin/python${LSST_PYVER} ${CONDA_PREFIX}/bin/python${LSST_PYVER}.bak
     echo " "
 fi
 
