@@ -45,6 +45,10 @@ outputs:
       run:
         - python
         - {{ pin_subpackage('stackvana-core-impl', exact=True) }}
+    test:
+      commands:
+        - eups -h
+        - eups list
 
   - name: stackvana-core-impl
     version: {{ version }}
