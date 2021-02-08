@@ -174,4 +174,4 @@ eups list -s --topological -D --raw 2>/dev/null
 echo "================================================="
 
 # remove the global tags file since it tends to leak across envs
-rm -f ${EUPS_DIR}/ups_db/global.tags
+rm -f ${EUPS_PATH}/ups_db/global.tags
