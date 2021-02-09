@@ -72,15 +72,43 @@ function _report_errors {
 if [[ `uname -s` == "Darwin" ]]; then
     echo "Making the python shim for OSX..."
     mv ${CONDA_PREFIX}/bin/python${LSST_PYVER} ${CONDA_PREFIX}/bin/python${LSST_PYVER}.bak
-    echo "#!/bin/bash
-    if [[ \${LSST_LIBRARY_PATH} ]]; then
-        DYLD_LIBRARY_PATH=\${LSST_LIBRARY_PATH} \\
-        DYLD_FALLBACK_LIBRARY_PATH=\${LSST_LIBRARY_PATH} \\
-        python${LSST_PYVER}.bak \"\$@\"
-    else
-        python${LSST_PYVER}.bak \"\$@\"
-    fi
-" > ${CONDA_PREFIX}/bin/python${LSST_PYVER}
+    echo "\
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+
+int prepend_env(char *envname, char *envval) {
+  char *curr_val = getenv(envname);
+  int rval;
+  char *new_val = NULL;
+  int new_len;
+
+  if (curr_val != NULL) {
+      new_len = strlen(curr_val) + strlen(envval) + 1 + 1;
+      new_val = (char*)malloc(sizeof(char) * new_len);
+      sprintf(new_val, \"%s:%s\", envval, curr_val);
+      rval = setenv(envname, new_val, 1);
+      free(new_val);
+  } else {
+    rval = setenv(envname, envval, 1);
+  }
+
+  return rval;
+}
+
+int main(int argc, char **argv) {
+  const char *orig_py = \"${CONDA_PREFIX}/bin/python${LSST_PYVER}.bak\";
+  char *lsst_lib_path = getenv(\"LSST_LIBRARY_PATH\");
+  if (lsst_lib_path != NULL) {
+    prepend_env(\"DYLD_LIBRARY_PATH\", lsst_lib_path);
+    prepend_env(\"DYLD_FALLBACK_LIBRARY_PATH\", lsst_lib_path);
+  }
+  argv[0] = orig_py;
+  execv(orig_py, argv);
+}
+" > main.c
+    ${CC} ${CFLAGS} ${LDFLAGS} main.c -o ${CONDA_PREFIX}/bin/python${LSST_PYVER}
     chmod u+x ${CONDA_PREFIX}/bin/python${LSST_PYVER}
     echo " "
 fi
