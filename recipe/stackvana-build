@@ -35,7 +35,8 @@ fi
 function _report_errors {
     for pth in "${EUPS_PATH}/EupsBuildDir/*/*/build.log" \
         "${EUPS_PATH}/EupsBuildDir/*/*/*/config.log" \
-        "${EUPS_PATH}/EupsBuildDir/*/*/*/CMakeFiles/*.log"; do
+        "${EUPS_PATH}/EupsBuildDir/*/*/*/CMakeFiles/*.log" \
+        "${EUPS_PATH}/EupsBuildDir/*/*/*/tests/.tests/*"; do
 
         for fname in `compgen -G $pth`; do
             echo "================================================================="
