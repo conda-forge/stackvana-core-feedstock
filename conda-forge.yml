@@ -1,4 +1,4 @@
 conda_forge_output_validation: true
-build_with_mambabuild: False
+build_with_mambabuild: true
 bot:
   automerge: true
