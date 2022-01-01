@@ -9,7 +9,7 @@
 #  - for a weekly build 'w_2018_50', the conda version is '0.2018.50'
 #  - for a major version 'v18_1', the conda version is '18.1.0'
 #
-{% set version = "0.2021.52" %}
+{% set version = "0.2022.1" %}
 {% set patch_version = version.split(".")[-1] if version.split(".")[-1].__len__() == 2 else "0" + version.split(".")[-1] %}
 {% set dm_tag = "w_" + version.split(".")[1] + "_" + patch_version if version.startswith("0.") else "v" + version.replace(".", "_") %}
 
@@ -19,7 +19,7 @@ package:
 
 source:
   url: https://eups.lsst.codes/stack/src/tags/{{ dm_tag }}.list
-  sha256: c1c49c51ea951f1d63d4d08724806110d79e3ede303423b3dce530c1e82f58ce
+  sha256: f660975742ce38a7fcf1529fad04cf84be38827e6cc9e1d4c36f799a14f82735
 
 build:
   skip: true  # [win or py != 38]
