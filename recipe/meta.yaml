@@ -61,7 +61,6 @@ outputs:
       run:
         - python
         - {{ pin_compatible('rubin-env-nosysroot', max_pin='x.x.x') }}
-        - libcxx =={{ cxx_compiler_version }}.*  # [osx]
     test:
       script: run_test_impl.sh
       requires:
