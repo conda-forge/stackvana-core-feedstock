@@ -57,7 +57,7 @@ outputs:
         - python
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - rubin-env-nosysroot
+        - rubin-env-nosysroot >=2
       run:
         - python
         - {{ pin_compatible('rubin-env-nosysroot', max_pin='x.x.x') }}
