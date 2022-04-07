@@ -60,7 +60,7 @@ outputs:
         - rubin-env-nosysroot >=3
       run:
         - python
-        - {{ pin_compatible('rubin-env-nosysroot', max_pin='x.x.x') }}
+        - {{ pin_compatible('rubin-env-nosysroot', max_pin='x') }}
     test:
       script: run_test_impl.sh
       requires:
