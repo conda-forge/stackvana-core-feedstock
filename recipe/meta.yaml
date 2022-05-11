@@ -23,7 +23,7 @@ source:
 
 build:
   skip: true  # [win or py != 38]
-  number: 0
+  number: 1
   merge_build_host: true
 
 requirements:
