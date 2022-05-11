@@ -57,7 +57,26 @@ outputs:
         - python
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
-        - rubin-env-nosysroot >=3
+        - {{ compiler('fortran') }}
+        - apr
+        - boost
+        - cfitsio
+        - curl
+        - fftw
+        - gsl
+        - libaprutil
+        - libblas
+        - libcblas
+        - liblapack
+        - liblapacke
+        - log4cxx
+        - minuit2
+        - mpich
+        - numpy
+        - xpa
+        - starlink-ast
+        - wcslib
+        - rubin-env-nosysroot =3
       run:
         - python
         - {{ pin_compatible('rubin-env-nosysroot', max_pin='x') }}
