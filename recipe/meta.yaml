@@ -63,7 +63,7 @@ outputs:
       script: run_test_impl.sh
       requires:
         - python
-        - rubin-env-nosysroot =4
+        - rubin-env-nosysroot =5
 
 about:
   home: https://github.com/beckermr/stackvana-core
