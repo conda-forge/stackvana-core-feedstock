@@ -55,7 +55,7 @@ outputs:
     requirements:
       host:
         - python
-        - rubin-env-nosysroot =4
+        - rubin-env-nosysroot =5
       run:
         - python
         - {{ pin_compatible('rubin-env-nosysroot', max_pin='x') }}
