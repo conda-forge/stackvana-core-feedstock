@@ -55,7 +55,7 @@ outputs:
     requirements:
       host:
         - python
-        - rubin-env-nosysroot =5
+        - rubin-env-nosysroot =6
       run:
         - python
         - {{ pin_compatible('rubin-env-nosysroot', max_pin='x') }}
@@ -63,7 +63,7 @@ outputs:
       script: run_test_impl.sh
       requires:
         - python
-        - rubin-env-nosysroot =5
+        - rubin-env-nosysroot =6
 
 about:
   home: https://github.com/beckermr/stackvana-core
