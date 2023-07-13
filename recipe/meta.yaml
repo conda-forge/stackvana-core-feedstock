@@ -25,6 +25,8 @@ build:
   skip: true  # [win or py != 311]
   number: 0
   merge_build_host: true
+  script_env:
+    - LSST_PYVER="3.11"
 
 requirements:
   host:
