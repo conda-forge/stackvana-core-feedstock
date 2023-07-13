@@ -5,7 +5,7 @@
 
 LSST_HOME="${PREFIX}/lsst_home"
 export EUPS_PKGROOT="https://eups.lsst.codes/stack/src"
-export LSST_PYVER="3.10"
+export LSST_PYVER="3.11"
 
 # tell eups where CURL is
 CURL="${PREFIX}/bin/curl"
