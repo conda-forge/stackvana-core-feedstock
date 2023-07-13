@@ -9,9 +9,13 @@
 #  - for a weekly build 'w_2018_50', the conda version is '0.2018.50'
 #  - for a major version 'v18_1', the conda version is '18.1.0'
 #
-{% set version = "0.2023.27" %}
+{% set version = "0.2023.28" %}
 {% set patch_version = version.split(".")[-1] if version.split(".")[-1].__len__() == 2 else "0" + version.split(".")[-1] %}
 {% set dm_tag = "w_" + version.split(".")[1] + "_" + patch_version if version.startswith("0.") else "v" + version.replace(".", "_") %}
+
+{% set rubin_env = "7" %}
+{% set lsst_pyver = "3.11" %}
+{% set skip_pyver = lsst_pyver.replace(".", "") | int %}
 
 package:
   name: {{ name|lower }}
@@ -19,12 +23,16 @@ package:
 
 source:
   url: https://eups.lsst.codes/stack/src/tags/{{ dm_tag }}.list
-  sha256: 2eecde32418c9ccca59f47b60198ac771b30709932d3e64f05086ce1364faee1
+  sha256: aee14cae60eb800fc9dd42de52a5a01bee88a7ef7d21586889b26acfd8dc62f5
 
 build:
-  skip: true  # [win or py != 310]
+  {% if win or py != skip_pyver %}
+  skip: True
+  {% endif %}
   number: 0
   merge_build_host: true
+  script_env:
+    - LSST_PYVER={{ lsst_pyver }}
 
 requirements:
   host:
@@ -55,7 +63,7 @@ outputs:
     requirements:
       host:
         - python
-        - rubin-env-nosysroot =6
+        - rubin-env-nosysroot ={{ rubin_env }}
       run:
         - python
         - {{ pin_compatible('rubin-env-nosysroot', max_pin='x') }}
@@ -63,7 +71,7 @@ outputs:
       script: run_test_impl.sh
       requires:
         - python
-        - rubin-env-nosysroot =6
+        - rubin-env-nosysroot ={{ rubin_env }}
 
 about:
   home: https://github.com/beckermr/stackvana-core
