@@ -22,7 +22,7 @@ source:
   sha256: aee14cae60eb800fc9dd42de52a5a01bee88a7ef7d21586889b26acfd8dc62f5
 
 build:
-  skip: true  # [win or py != 310]
+  skip: true  # [win or py != 311]
   number: 0
   merge_build_host: true
 
