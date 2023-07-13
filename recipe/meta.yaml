@@ -32,7 +32,7 @@ build:
   number: 0
   merge_build_host: true
   script_env:
-    - LSST_PYVER="{{ lsst_pyver }}"
+    - LSST_PYVER={{ lsst_pyver }}
 
 requirements:
   host:
