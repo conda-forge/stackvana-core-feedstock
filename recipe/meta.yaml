@@ -15,7 +15,7 @@
 
 {% set rubin_env = "7" %}
 {% set lsst_pyver = "3.11" %}
-{% set skip_pyver = int(lsst_pyver.replace(".", "") %}
+{% set skip_pyver = int(lsst_pyver.replace(".", "")) %}
 
 package:
   name: {{ name|lower }}
