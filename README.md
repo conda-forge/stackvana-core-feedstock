@@ -3,6 +3,7 @@ About stackvana-core-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/stackvana-core-feedstock/blob/main/LICENSE.txt)
 
+
 About stackvana-core
 --------------------
 
@@ -11,6 +12,7 @@ Home: https://github.com/beckermr/stackvana-core
 Package license: GPL-3.0-or-later
 
 Summary: core build tooling for stackvana
+
 About stackvana-core-impl
 -------------------------
 
