@@ -13,6 +13,10 @@
 {% set patch_version = version.split(".")[-1] if version.split(".")[-1].__len__() == 2 else "0" + version.split(".")[-1] %}
 {% set dm_tag = "w_" + version.split(".")[1] + "_" + patch_version if version.startswith("0.") else "v" + version.replace(".", "_") %}
 
+{% set rubin_env = "7" %}
+{% set lsst_pyver = "3.11" %}
+{% set skip_pyver = int(lsst_pyver.replace(".", "") %}
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -22,11 +26,11 @@ source:
   sha256: aee14cae60eb800fc9dd42de52a5a01bee88a7ef7d21586889b26acfd8dc62f5
 
 build:
-  skip: true  # [win or py != 311]
+  skip: true  # [win or py != skip_pyver]
   number: 0
   merge_build_host: true
   script_env:
-    - LSST_PYVER="3.11"
+    - LSST_PYVER="{{ lsst_pyver }}"
 
 requirements:
   host:
@@ -57,7 +61,7 @@ outputs:
     requirements:
       host:
         - python
-        - rubin-env-nosysroot =7
+        - rubin-env-nosysroot ={{ rubin_env }}
       run:
         - python
         - {{ pin_compatible('rubin-env-nosysroot', max_pin='x') }}
@@ -65,7 +69,7 @@ outputs:
       script: run_test_impl.sh
       requires:
         - python
-        - rubin-env-nosysroot =7
+        - rubin-env-nosysroot ={{ rubin_env }}
 
 about:
   home: https://github.com/beckermr/stackvana-core
