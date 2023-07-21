@@ -1,0 +1,32 @@
+--- a/tests.py	2023-07-21 07:24:02
++++ b/tests.py	2023-07-21 07:33:58
+@@ -440,7 +440,7 @@
+ 
+         # Ignore doxygen build directories since they can confuse pytest
+         # test collection
+-        interpreter += " --ignore=doc/html --ignore=doc/xml"
++        interpreter += " --ignore=doc/html --ignore=doc/xml --ignore=bin.src"
+ 
+         # Ignore the C++ directories since they will never have python
+         # code and doing this will speed up test collection
+@@ -522,6 +522,20 @@
+         fi;
+         """
+         testfiles = shlex.join(pythonTestFiles)
++
++        ####################################
++        # debug stuff added by stackvana
++        import pprint
++        print('>>> stackvana >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', flush=True)
++        print('>>> stackvana >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', flush=True)
++        print('environment:', pprint.pformat(os.environ), flush=True)
++        print('target:', target, flush=True)
++        print('testing command:', cmd.format(interpreter, testfiles, libpathstr), flush=True)
++        print('>>> stackvana >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', flush=True)
++        print('>>> stackvana >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>', flush=True)
++        # end of stuff added by stackvana
++        ####################################
++
+         result = self._env.Command(target, None, cmd.format(interpreter, testfiles, libpathstr))
+ 
+         self._env.Alias(os.path.basename(target), target)

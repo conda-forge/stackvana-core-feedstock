@@ -122,11 +122,7 @@ else
     sconsdir=$(compgen -G "${EUPS_PATH}/Linux64/sconsUtils/*/python/lsst/sconsUtils")
 fi
 pushd ${sconsdir}
-patch tests.py ${RECIPE_DIR}/0001-print-test-env-sconsUtils.patch
-if [[ "$?" != "0" ]]; then
-    exit 1
-fi
-patch tests.py ${RECIPE_DIR}/0002-ignore-binsrc.patch
+patch tests.py ${RECIPE_DIR}/0003-ignore-bin.src-print-env.patch
 if [[ "$?" != "0" ]]; then
     exit 1
 fi
