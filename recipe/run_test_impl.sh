@@ -50,7 +50,7 @@ fi
 setup pex_exceptions
 python -c "import lsst.pex.exceptions"
 
-latest_rubin_env=$(conda search rubin-env --json | jq -r '."rubin-env-nosysroot"[-1].version')
+latest_rubin_env=$(conda search rubin-env-nosysroot --json | jq -r '."rubin-env-nosysroot"[-1].version')
 curr_rubin_env=$(conda list --json | jq -r '.[] | select(.name == "rubin-env-nosysroot").version')
 
 if [[ "${latest_rubin_env}" != "${curr_rubin_env}" ]]
