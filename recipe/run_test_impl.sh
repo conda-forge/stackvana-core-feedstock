@@ -56,5 +56,7 @@ curr_rubin_env=$(conda list --json | jq -r '.[] | select(.name == "rubin-env-nos
 if [[ "${latest_rubin_env}" != "${curr_rubin_env}" ]]
 then
     echo "rubin-env is not up to date!"
+    echo "pinned in recipe: ${curr_rubin_env}"
+    echo "latest:           ${latest_rubin_env}"
     exit 1
 fi
