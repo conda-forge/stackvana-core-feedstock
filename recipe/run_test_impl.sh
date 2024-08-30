@@ -49,3 +49,14 @@ fi
 # try an import
 setup pex_exceptions
 python -c "import lsst.pex.exceptions"
+
+latest_rubin_env=$(conda search rubin-env-nosysroot --json | jq -r '."rubin-env-nosysroot"[-1].version')
+curr_rubin_env=$(conda list --json | jq -r '.[] | select(.name == "rubin-env-nosysroot").version')
+
+if [[ "${latest_rubin_env}" != "${curr_rubin_env}" ]]
+then
+    echo "rubin-env is not up to date!"
+    echo "pinned in recipe: ${curr_rubin_env}"
+    echo "latest:           ${latest_rubin_env}"
+    exit 1
+fi
