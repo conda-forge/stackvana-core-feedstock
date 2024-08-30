@@ -13,7 +13,7 @@
 {% set patch_version = version.split(".")[-1] if version.split(".")[-1]|length == 2 else "0" + version.split(".")[-1] %}
 {% set dm_tag = "w_" + version.split(".")[1] + "_" + patch_version if version.startswith("0.") else "v" + version.replace(".", "_") %}
 
-{% set rubin_env = "8" %}
+{% set rubin_env = "9" %}
 {% set lsst_pyver = "3.11" %}
 {% set skip_pyver = lsst_pyver.replace(".", "") | int %}
 
