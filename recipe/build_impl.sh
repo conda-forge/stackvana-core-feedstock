@@ -160,6 +160,8 @@ compgen -G "${EUPS_PATH}/*/*/*/tests/*" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/bin.src/*" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/doc/html/*" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/doc/xml/*" | xargs rm -rf
+compgen -G "${EUPS_PATH}/*/*/*/doc/*" | xargs rm -rf
+compgen -G "${EUPS_PATH}/*/*/*/ups/build.log" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/share/doc/*" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/share/man/*" | xargs rm -rf
 
