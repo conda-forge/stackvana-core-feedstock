@@ -32,6 +32,9 @@ else
     export LDFLAGS="${LDFLAGS} -Wl,-rpath,${CONDA_PREFIX}/lib -Wl,-rpath-link,${CONDA_PREFIX}/lib -L${CONDA_PREFIX}/lib"
 fi
 
+# skip all tests
+export EUPSPKG_SCONSFLAGS=${EUPSPKG_SCONSFLAGS}" --no-tests"
+
 function _report_errors {
     for pth in "${EUPS_PATH}/EupsBuildDir/*/*/build.log" \
         "${EUPS_PATH}/EupsBuildDir/*/*/*/config.log" \
@@ -160,6 +163,8 @@ compgen -G "${EUPS_PATH}/*/*/*/tests/*" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/bin.src/*" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/doc/html/*" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/doc/xml/*" | xargs rm -rf
+compgen -G "${EUPS_PATH}/*/*/*/doc/*" | xargs rm -rf
+compgen -G "${EUPS_PATH}/*/*/*/ups/build.log" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/share/doc/*" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/share/man/*" | xargs rm -rf
 
