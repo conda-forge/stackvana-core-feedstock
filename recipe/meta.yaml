@@ -29,7 +29,7 @@ build:
   {% if win or py != skip_pyver %}
   skip: true
   {% endif %}
-  number: 1
+  number: 2
   merge_build_host: true
   script_env:
     - LSST_PYVER={{ lsst_pyver }}
