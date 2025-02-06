@@ -6,21 +6,21 @@ stackvana_backup_and_append_envvar() {
     if [ "${_way}" = "activate" ]; then
         _appval="$3"
         _appsep="$4"
-        eval oldval="\$${_envvar}"
+        eval _oldval="\$${_envvar}"
 
-        eval "export STACKVANA_BACKUP_${_envvar}=\"${oldval}\""
-        if [ -z "${oldval}" ]; then
+        eval "export STACKVANA_BACKUP_${_envvar}=\"${_oldval}\""
+        if [ -z "${_oldval}" ]; then
             eval "export ${_envvar}=\"${_appval}\""
         else
-            eval "export ${_envvar}=\"${oldval}${_appsep}${_appval}\""
+            eval "export ${_envvar}=\"${_oldval}${_appsep}${_appval}\""
         fi
     else
-        eval backval="\$STACKVANA_BACKUP_${_envvar}"
+        eval _backval="\$STACKVANA_BACKUP_${_envvar}"
 
-        if [ -z "${backval}" ]; then
+        if [ -z "${_backval}" ]; then
             eval "unset ${_envvar}"
         else
-            eval "export ${_envvar}=\"${backval}\""
+            eval "export ${_envvar}=\"${_backval}\""
         fi
         eval "unset STACKVANA_BACKUP_${_envvar}"
     fi
