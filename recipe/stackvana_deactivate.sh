@@ -1,6 +1,4 @@
-#!/bin/sh
-
-# finally setup env so we can build packages
+# remove stackvana env changes
 stackvana_backup_and_append_envvar() {
     _way="$1"
     _envvar="$2"
@@ -28,15 +26,11 @@ stackvana_backup_and_append_envvar() {
     fi
 }
 
-# clean out our stuff - no need to backup or restore
-unset STACKVANA_ACTIVATED
-
-# remove stackvana env changes
 for var in LSST_HOME LSST_PYVER LSST_DM_TAG \
         LD_LIBRARY_PATH DYLD_LIBRARY_PATH \
         LSST_LIBRARY_PATH \
         SCONSUTILS_USE_CONDA_COMPILERS \
-        EUPS_PKGROOT; do
+        EUPS_PKGROOT STACKVANA_ACTIVATED; do
     stackvana_backup_and_append_envvar \
         deactivate \
         "$var"

@@ -82,7 +82,7 @@ popd  # LSST_HOME
 cp ${RECIPE_DIR}/stackvana_deactivate.sh ${LSST_HOME}/stackvana_deactivate.sh
 
 echo "
-# ==================== added by build.sh in recipe build
+# ==================== added by build_impl.sh in recipe build
 
 export STACKVANA_BACKUP_LSST_HOME=\${LSST_HOME}
 export LSST_HOME=\"\${CONDA_PREFIX}/lsst_home\"

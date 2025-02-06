@@ -1,14 +1,13 @@
-#!/bin/sh
-
 # note that before calling this script, you must check that eups has not already
 # been activated. for example, the conda activate script for stackvana-core is
 #
-#     if [[ ! ${STACKVANA_ACTIVATED} ]]; then
-#         source ${CONDA_PREFIX}/lsst_home/stackvana_activate.sh
+#     if [ -z "${STACKVANA_ACTIVATED}"" ]; then
+#         . "${CONDA_PREFIX}/lsst_home/stackvana_activate.sh"
 #     fi
 #
 
 # a flag to indicate stackvana is activated
+export STACKVANA_BACKUP_STACKVANA_ACTIVATED="${STACKVANA_ACTIVATED}"
 export STACKVANA_ACTIVATED=1
 
 # clean/backup any EUPS stuff

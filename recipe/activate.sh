@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # we have to check if things have not already been activated
 if [ -z "${STACKVANA_ACTIVATED}" ]; then
   # shellcheck source=/dev/null
