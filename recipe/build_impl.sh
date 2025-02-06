@@ -117,7 +117,7 @@ eups distrib install -v -t ${LSST_TAG} sconsUtils
 
 echo "Patching sconsUtils for debugging..."
 if [[ `uname -s` == "Darwin" ]]; then
-    sconsdir=$(compgen -G "${EUPS_PATH}/DarwinX86/sconsUtils/*/python/lsst/sconsUtils")
+    sconsdir=$(compgen -G "${EUPS_PATH}/Darwin*/sconsUtils/*/python/lsst/sconsUtils")
 else
     sconsdir=$(compgen -G "${EUPS_PATH}/Linux64/sconsUtils/*/python/lsst/sconsUtils")
 fi
