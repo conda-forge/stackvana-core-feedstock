@@ -82,7 +82,7 @@ popd  # LSST_HOME
 cp ${RECIPE_DIR}/stackvana_deactivate.sh ${LSST_HOME}/stackvana_deactivate.sh
 
 echo "
-# ==================== added by build.sh in recipe build
+# ==================== added by build_impl.sh in recipe build
 
 export STACKVANA_BACKUP_LSST_HOME=\${LSST_HOME}
 export LSST_HOME=\"\${CONDA_PREFIX}/lsst_home\"
@@ -117,7 +117,7 @@ eups distrib install -v -t ${LSST_TAG} sconsUtils
 
 echo "Patching sconsUtils for debugging..."
 if [[ `uname -s` == "Darwin" ]]; then
-    sconsdir=$(compgen -G "${EUPS_PATH}/DarwinX86/sconsUtils/*/python/lsst/sconsUtils")
+    sconsdir=$(compgen -G "${EUPS_PATH}/Darwin*/sconsUtils/*/python/lsst/sconsUtils")
 else
     sconsdir=$(compgen -G "${EUPS_PATH}/Linux64/sconsUtils/*/python/lsst/sconsUtils")
 fi
