@@ -26,9 +26,7 @@ source:
   sha256: e68645741f68d2d7af56fd72a6e4c6d2af0fbfdbcfdfa73afa4ddd33d07b8b6a
 
 build:
-  {% if win or py != skip_pyver %}
-  skip: true
-  {% endif %}
+  skip: {{ true if win or py != skip_pyver else false }}
   number: 3
   merge_build_host: true
   script_env:
