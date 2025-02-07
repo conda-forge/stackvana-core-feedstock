@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# hack to see if we can get this to build
+echo "before manual activation"
+echo "CONDA_PREFIX: ${CONDA_PREFIX}"
+echo "PREFIX: ${PREFIX}"
+
+conda activate ${PREFIX}
+
+echo "after manual activation"
+echo "CONDA_PREFIX: ${CONDA_PREFIX}"
+echo "PREFIX: ${PREFIX}"
+
 ###############################################################################
 # env control
 
