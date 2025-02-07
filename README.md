@@ -14,38 +14,6 @@ Current build status
 
 
 <table>
-    
-  <tr>
-    <td>Azure</td>
-    <td>
-      <details>
-        <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=11809&branchName=main">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/stackvana-core-feedstock?branchName=main">
-          </a>
-        </summary>
-        <table>
-          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
-          <tbody><tr>
-              <td>linux_64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=11809&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/stackvana-core-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=11809&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/stackvana-core-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </details>
-    </td>
-  </tr>
 </table>
 
 Current release info
@@ -54,7 +22,6 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stackvana--core-green.svg)](https://anaconda.org/conda-forge/stackvana-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stackvana-core.svg)](https://anaconda.org/conda-forge/stackvana-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stackvana-core.svg)](https://anaconda.org/conda-forge/stackvana-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stackvana-core.svg)](https://anaconda.org/conda-forge/stackvana-core) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-stackvana--core--impl-green.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stackvana-core-impl.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stackvana-core-impl.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stackvana-core-impl.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) |
 
 Installing stackvana-core
 =========================
@@ -66,16 +33,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `stackvana-core, stackvana-core-impl` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `stackvana-core` can be installed with `conda`:
 
 ```
-conda install stackvana-core stackvana-core-impl
+conda install stackvana-core
 ```
 
 or with `mamba`:
 
 ```
-mamba install stackvana-core stackvana-core-impl
+mamba install stackvana-core
 ```
 
 It is possible to list all of the versions of `stackvana-core` available on your platform with `conda`:
