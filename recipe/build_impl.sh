@@ -4,12 +4,13 @@
 echo "before manual activation"
 echo "CONDA_PREFIX: ${CONDA_PREFIX}"
 echo "PREFIX: ${PREFIX}"
+echo "PATH: ${PATH}"
 
-conda activate ${PREFIX}
+# conda activate ${PREFIX}
 
-echo "after manual activation"
-echo "CONDA_PREFIX: ${CONDA_PREFIX}"
-echo "PREFIX: ${PREFIX}"
+# echo "after manual activation"
+# echo "CONDA_PREFIX: ${CONDA_PREFIX}"
+# echo "PREFIX: ${PREFIX}"
 
 ###############################################################################
 # env control
