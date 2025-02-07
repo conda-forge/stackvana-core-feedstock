@@ -7,7 +7,7 @@ echo "PREFIX: ${PREFIX}"
 echo "PATH: ${PATH}"
 
 if [[ "${PREFIX}" != "${CONDA_PREFIX}" ]]; then
-    echo "merging build and host did not work!"
+    echo "you need to set build/merge_build_host to True in order to build with stackvana!"
     exit 1
 fi
 
