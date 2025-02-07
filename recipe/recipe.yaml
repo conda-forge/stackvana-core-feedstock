@@ -31,9 +31,6 @@ build:
   skip:
     - win
     - match(python, "!=" + lsst_pyver)
-  script:
-    env:
-      LSST_PYVER: ${{ lsst_pyver }}
   merge_build_and_host_envs: true
 
 outputs:
@@ -63,7 +60,10 @@ outputs:
       name: stackvana-core-impl
       version: ${{ version }}
     build:
-      script: build_impl.sh
+      script:
+        file: build_impl.sh
+        env:
+          LSST_PYVER: ${{ lsst_pyver }}
     requirements:
       host:
         - python
