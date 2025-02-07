@@ -6,6 +6,11 @@ echo "CONDA_PREFIX: ${CONDA_PREFIX}"
 echo "PREFIX: ${PREFIX}"
 echo "PATH: ${PATH}"
 
+if [[ "${PREFIX}" != "${CONDA_PREFIX}" ]]; then
+    echo "merging build and host did not work!"
+    exit 1
+fi
+
 # conda activate ${PREFIX}
 
 # echo "after manual activation"
