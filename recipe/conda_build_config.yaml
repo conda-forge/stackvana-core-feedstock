@@ -1,7 +1,7 @@
 rubin_env:
-  - "9"
+  - "10"
 lsst_pyver:
-  - "3.11"
+  - "3.12"
 skip_pyver:
   - 311
 zip_keys:
