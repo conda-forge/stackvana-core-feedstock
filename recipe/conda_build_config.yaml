@@ -3,7 +3,7 @@ rubin_env:
 lsst_pyver:
   - "3.12"
 skip_pyver:
-  - 311
+  - 312
 zip_keys:
   -
     - lsst_pyver
