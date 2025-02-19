@@ -82,6 +82,7 @@ outputs:
       - script: run_test_impl.sh
         requirements:
           run:
+            - micromamba
             - python
             - rubin-env-nosysroot =${{ rubin_env }}
 

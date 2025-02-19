@@ -38,20 +38,26 @@ stackvana-build pex_exceptions
 echo " "
 
 echo -n "setting up 'pex_exceptions' ... "
-val=`setup -j pex_exceptions 2>&1`
-if [[ ! ${val} ]]; then
+setup pex_exceptions
+if [ -n "${PEX_EXCEPTIONS_DIR}" ]; then
     echo "worked!"
+    # try an import
+    python -c "import lsst.pex.exceptions"
 else
     echo "failed!"
     exit 1
 fi
-
-# try an import
-setup pex_exceptions
-python -c "import lsst.pex.exceptions"
+# val=$(setup -j pex_exceptions 2>&1)
+# if [[ ! ${val} ]]; then
+#     echo "worked!"
+# else
+#     echo "failed!"
+#     exit 1
+# fi
 
 latest_rubin_env=$(conda search rubin-env-nosysroot --json | jq -r '."rubin-env-nosysroot"[-1].version')
-curr_rubin_env=$(conda list --json | jq -r '.[] | select(.name == "rubin-env-nosysroot").version')
+micromamba list --json
+curr_rubin_env=$(micromamba list --json | jq -r '.[] | select(.name == "rubin-env-nosysroot").version')
 
 if [[ "${latest_rubin_env}" != "${curr_rubin_env}" ]]
 then
