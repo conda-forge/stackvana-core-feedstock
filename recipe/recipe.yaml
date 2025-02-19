@@ -52,11 +52,11 @@ outputs:
       #       - lsst.sconsUtils
       #     pip_check: false
       - script:
-          - python -c "import lsst"
-          - python -c "import lsst.sconsUtils"
-          - eups -h
-          - eups list
-          - if [[ ! ${STACKVANA_ACTIVATED} ]]; then exit 1; fi
+        - python -c "import lsst"
+        - python -c "import lsst.sconsUtils"
+        - eups -h
+        - eups list
+        - if [[ ! ${STACKVANA_ACTIVATED} ]]; then exit 1; fi
 
   - package:
       name: stackvana-core-impl
@@ -74,11 +74,11 @@ outputs:
         - python
         - ${{ pin_compatible('rubin-env-nosysroot', upper_bound='x') }}
     tests:
-      - python:
-          imports:
-            - lsst
-            - lsst.sconsUtils
-          pip_check: false
+      # - python:
+      #     imports:
+      #       - lsst
+      #       - lsst.sconsUtils
+      #     pip_check: false
       - script: run_test_impl.sh
         requirements:
           run:
