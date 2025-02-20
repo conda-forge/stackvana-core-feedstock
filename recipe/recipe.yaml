@@ -12,11 +12,11 @@ schema_version: 1
 
 context:
   name: stackvana-core
-  version: "0.2025.5"
+  version: "0.2025.8"
   patch_version: '${{ (version | split(".")) | last if (version | split("."))[-1] | list | length == 2 else "0" + (version|split(".")) | last }}'
   dm_tag: ${{ "w_" + (version|split("."))[1] + "_" + patch_version if (version | split(".")) | first == "0" else "v" + version | replace(".", "_") }}
-  rubin_env: 9
-  lsst_pyver: "3.11"
+  rubin_env: 10
+  lsst_pyver: "3.12"
 
 recipe:
   name: ${{ name|lower }}
@@ -24,10 +24,10 @@ recipe:
 
 source:
   url: https://eups.lsst.codes/stack/src/tags/${{ dm_tag }}.list
-  sha256: e68645741f68d2d7af56fd72a6e4c6d2af0fbfdbcfdfa73afa4ddd33d07b8b6a
+  sha256: b7b5970c6688d923097ab05a5b97734e0e549a2c6d7d1e9b4980569295664870
 
 build:
-  number: 3
+  number: 1
   skip:
     - win
     - match(python, "!=" + lsst_pyver)
