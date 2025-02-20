@@ -1,21 +1,9 @@
 #!/bin/bash
 
-# hack to see if we can get this to build
-echo "before manual activation"
-echo "CONDA_PREFIX: ${CONDA_PREFIX}"
-echo "PREFIX: ${PREFIX}"
-echo "PATH: ${PATH}"
-
 if [[ "${PREFIX}" != "${CONDA_PREFIX}" ]]; then
     echo "you need to set build/merge_build_host to True in order to build with stackvana!"
     exit 1
 fi
-
-# conda activate ${PREFIX}
-
-# echo "after manual activation"
-# echo "CONDA_PREFIX: ${CONDA_PREFIX}"
-# echo "PREFIX: ${PREFIX}"
 
 ###############################################################################
 # env control

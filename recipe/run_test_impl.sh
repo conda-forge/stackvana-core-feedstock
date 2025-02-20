@@ -55,10 +55,8 @@ fi
 #     exit 1
 # fi
 
-latest_rubin_env=$(conda search rubin-env-nosysroot --json | jq -r '."rubin-env-nosysroot"[-1].version')
+latest_rubin_env=$(conda search -c conda-forge rubin-env-nosysroot --json | jq -r '."rubin-env-nosysroot"[-1].version')
 curr_rubin_env=$(micromamba list --json | jq -r '.[] | select(.name == "rubin-env-nosysroot").version')
-
-conda search rubin-env-nosysroot --json
 
 if [[ "${latest_rubin_env}" != "${curr_rubin_env}" ]]
 then
