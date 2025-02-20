@@ -9,7 +9,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 lsst_pyver:
-- '3.11'
+- '3.12'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 pin_run_as_build:
@@ -17,11 +17,11 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.11.* *_cpython
+- 3.12.* *_cpython
 rubin_env:
-- '9'
+- '10'
 skip_pyver:
-- '311'
+- '312'
 target_platform:
 - osx-64
 zip_keys:
