@@ -90,7 +90,7 @@ outputs:
       - script: run_test_impl.sh
         requirements:
           run:
-            - micromamba
+            - conda
             - python
             - rubin-env-nosysroot =${{ rubin_env }}
 
