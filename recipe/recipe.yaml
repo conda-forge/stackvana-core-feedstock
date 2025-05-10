@@ -13,7 +13,8 @@ schema_version: 1
 context:
   name: stackvana-core
   version: "0.2025.19"
-  patch_version: '${{ (version | split(".")) | last if (version | split("."))[-1] | list | length == 2 else "0" + (version|split(".")) | last }}'
+  #patch_version: '${{ (version | split(".")) | last if (version | split("."))[-1] | list | length == 2 else "0" + (version|split(".")) | last }}'
+  patch_version: '${{ (version | split("."))[-1] | list | length }}'
   dm_tag: ${{ "w_" + (version|split("."))[1] + "_" + patch_version if (version | split(".")) | first == "0" else "v" + version | replace(".", "_") }}
   rubin_env: 10
   lsst_pyver: "3.12"
