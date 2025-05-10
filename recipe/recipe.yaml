@@ -13,8 +13,7 @@ schema_version: 1
 context:
   name: stackvana-core
   version: "0.2025.19"
-  #patch_version: '${{ (version | split(".")) | last if (version | split("."))[-1] | list | length == 2 else "0" + (version|split(".")) | last }}'
-  patch_version: '${{ (version | split("."))[-1] | list }}'
+  patch_version: '${{ (version | split(".")) | last if (version | split(".")) | last | list | length == 2 else "0" + (version|split(".")) | last }}'
   dm_tag: ${{ "w_" + (version|split("."))[1] + "_" + patch_version if (version | split(".")) | first == "0" else "v" + version | replace(".", "_") }}
   rubin_env: 10
   lsst_pyver: "3.12"
@@ -24,8 +23,8 @@ recipe:
   version: ${{ version }}
 
 source:
-  url: https://eups.lsst.codes/stack/src/tags/${{ dm_tag }}_${{ patch_version }}.list
-  sha256: b7b5970c6688d923097ab05a5b97734e0e549a2c6d7d1e9b4980569295664870
+  url: https://eups.lsst.codes/stack/src/tags/${{ dm_tag }}.list
+  sha256: a856b21e967e2eaf3ba753121fca12b1caf7085587e03b0bf0244b3a51bc28dc
 
 build:
   number: 1
