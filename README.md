@@ -1,5 +1,5 @@
-About stackvana-core-impl-feedstock
-===================================
+About stackvana-core-feedstock
+==============================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/stackvana-core-feedstock/blob/main/LICENSE.txt)
 
@@ -56,10 +56,10 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stackvana--core-green.svg)](https://anaconda.org/conda-forge/stackvana-core) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stackvana-core.svg)](https://anaconda.org/conda-forge/stackvana-core) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stackvana-core.svg)](https://anaconda.org/conda-forge/stackvana-core) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stackvana-core.svg)](https://anaconda.org/conda-forge/stackvana-core) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-stackvana--core--impl-green.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/stackvana-core-impl.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/stackvana-core-impl.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/stackvana-core-impl.svg)](https://anaconda.org/conda-forge/stackvana-core-impl) |
 
-Installing stackvana-core-impl
-==============================
+Installing stackvana-core
+=========================
 
-Installing `stackvana-core-impl` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `stackvana-core` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
@@ -145,17 +145,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating stackvana-core-impl-feedstock
-======================================
+Updating stackvana-core-feedstock
+=================================
 
-If you would like to improve the stackvana-core-impl recipe or build a new
+If you would like to improve the stackvana-core recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/stackvana-core-impl-feedstock are
+Note that all branches in the conda-forge/stackvana-core-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
