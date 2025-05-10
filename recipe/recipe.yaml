@@ -46,11 +46,11 @@ outputs:
       run_exports:
         - ${{ pin_subpackage('stackvana-core-impl', exact=True) }}
     tests:
-      # - python:
-      #     imports:
-      #       - lsst
-      #       - lsst.sconsUtils
-      #     pip_check: false
+      - python:
+          imports:
+            - lsst
+            - lsst.sconsUtils
+          pip_check: false
       - script:
         - python -c "import lsst"
         - python -c "import lsst.sconsUtils"
@@ -74,11 +74,11 @@ outputs:
         - python
         - ${{ pin_compatible('rubin-env-nosysroot', upper_bound='x') }}
     tests:
-      # - python:
-      #     imports:
-      #       - lsst
-      #       - lsst.sconsUtils
-      #     pip_check: false
+      - python:
+          imports:
+            - lsst
+            - lsst.sconsUtils
+          pip_check: false
       - script: run_test_impl.sh
         requirements:
           run:
