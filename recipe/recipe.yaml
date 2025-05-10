@@ -91,6 +91,7 @@ outputs:
         requirements:
           run:
             - conda
+            - micromamba
             - python
             - rubin-env-nosysroot =${{ rubin_env }}
 
