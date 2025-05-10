@@ -1,4 +1,6 @@
 #!/bin/bash
+set +x
+
 if [[ ! ${LSST_HOME} ]]
 then
     echo "LSST_HOME is not set!"
