@@ -1,4 +1,6 @@
 #!/bin/bash
+set +x
+
 if [[ ! ${LSST_HOME} ]]
 then
     echo "LSST_HOME is not set!"
@@ -50,8 +52,8 @@ fi
 setup pex_exceptions
 python -c "import lsst.pex.exceptions"
 
-latest_rubin_env=$(conda search rubin-env-nosysroot --json | jq -r '."rubin-env-nosysroot"[-1].version')
-curr_rubin_env=$(conda list --json | jq -r '.[] | select(.name == "rubin-env-nosysroot").version')
+latest_rubin_env=$(conda search -c conda-forge rubin-env-nosysroot --json | jq -r '."rubin-env-nosysroot"[-1].version')
+curr_rubin_env=$(micromamba list --json | jq -r '.[] | select(.name == "rubin-env-nosysroot").version')
 
 if [[ "${latest_rubin_env}" != "${curr_rubin_env}" ]]
 then
