@@ -1,0 +1,10 @@
+rubin_env:
+  - "10"
+lsst_pyver:
+  - "3.12"
+skip_pyver:
+  - 312
+zip_keys:
+  -
+    - lsst_pyver
+    - skip_pyver

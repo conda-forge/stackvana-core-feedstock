@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [[ "${PREFIX}" != "${CONDA_PREFIX}" ]]; then
-    echo "you need to set build/merge_build_host to True in order to build with stackvana!"
-    exit 1
-fi
-
 ###############################################################################
 # env control
 
