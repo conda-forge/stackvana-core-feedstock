@@ -1,5 +1,5 @@
 rubin_env:
-  - "10"
+  - "11"
 lsst_pyver:
   - "3.12"
 skip_pyver:
