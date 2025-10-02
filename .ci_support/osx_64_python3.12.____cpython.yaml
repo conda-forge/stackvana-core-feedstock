@@ -2,8 +2,6 @@ MACOSX_DEPLOYMENT_TARGET:
 - '10.13'
 MACOSX_SDK_VERSION:
 - '10.13'
-ace:
-- 8.0.5
 channel_sources:
 - conda-forge
 channel_targets:
@@ -20,10 +18,5 @@ python:
 - 3.12.* *_cpython
 rubin_env:
 - '11'
-skip_pyver:
-- '312'
 target_platform:
 - osx-64
-zip_keys:
-- - lsst_pyver
-  - skip_pyver

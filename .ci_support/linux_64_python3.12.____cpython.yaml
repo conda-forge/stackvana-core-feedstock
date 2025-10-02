@@ -1,7 +1,3 @@
-ace:
-- 8.0.5
-cdt_name:
-- conda
 channel_sources:
 - conda-forge
 channel_targets:
@@ -18,10 +14,5 @@ python:
 - 3.12.* *_cpython
 rubin_env:
 - '11'
-skip_pyver:
-- '312'
 target_platform:
 - linux-64
-zip_keys:
-- - lsst_pyver
-  - skip_pyver
