@@ -11,6 +11,8 @@
 context:
   name: stackvana-core
   version: "0.2025.40"
+  rubin_env: "11"
+  lsst_pyver: "3.12"
   raw_major_version: '${{ (version | split("."))[0] }}'
   raw_minor_version: '${{ (version | split("."))[1] }}'
   raw_patch_version: '${{ (version | split("."))[2] }}'
