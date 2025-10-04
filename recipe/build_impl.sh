@@ -4,7 +4,7 @@
 # env control
 
 LSST_HOME="${PREFIX}/lsst_home"
-export EUPS_PKGROOT="https://eups.lsst.codes/stack/src"
+export EUPS_PKGROOT="https://eups.lsst.cloud/stack/src"
 
 # tell eups where CURL is
 CURL="${PREFIX}/bin/curl"
