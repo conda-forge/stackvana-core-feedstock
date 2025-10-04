@@ -137,7 +137,7 @@ popd
 echo "
 Fixing the python scripts with shebangtron..."
 export SHTRON_PYTHON=${PYTHON}
-curl -sSL https://raw.githubusercontent.com/lsst/shebangtron/master/shebangtron | ${PYTHON}
+curl -sSL https://raw.githubusercontent.com/lsst/shebangtron/main/shebangtron | ${PYTHON}
 echo " "
 
 # clean out .pyc files made by eups installs
