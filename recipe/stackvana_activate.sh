@@ -12,7 +12,7 @@ export STACKVANA_ACTIVATED=1
 
 # clean/backup any EUPS stuff
 export STACKVANA_BACKUP_EUPS_PKGROOT="${EUPS_PKGROOT}"
-export EUPS_PKGROOT="https://eups.lsst.codes/stack/src"
+export EUPS_PKGROOT="https://eups.lsst.cloud/stack/src"
 
 # backup the LD paths since the DM stack will muck with them
 export STACKVANA_BACKUP_LD_LIBRARY_PATH="${LD_LIBRARY_PATH}"

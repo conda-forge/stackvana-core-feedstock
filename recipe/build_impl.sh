@@ -4,7 +4,7 @@
 # env control
 
 LSST_HOME="${PREFIX}/lsst_home"
-export EUPS_PKGROOT="https://eups.lsst.codes/stack/src"
+export EUPS_PKGROOT="https://eups.lsst.cloud/stack/src"
 
 # tell eups where CURL is
 CURL="${PREFIX}/bin/curl"
@@ -107,6 +107,12 @@ done
 cp ${RECIPE_DIR}/stackvana-build ${PREFIX}/bin/stackvana-build
 chmod u+x ${PREFIX}/bin/stackvana-build
 
+callback_folder="$EUPS_PATH/site"
+mkdir -p $callback_folder
+hook="distribInstallPostHook.py"
+hook_url="https://raw.githubusercontent.com/RobertLuptonTheGood/eups/refs/heads/master/callbacks/$hook"
+curl -fL --retry 3 -sS -o "$callback_folder/$hook" "$hook_url"
+
 ###############################################################################
 # now install sconsUtils
 # this brings most of the basic build tools into the env and lets us patch it
@@ -137,7 +143,7 @@ popd
 echo "
 Fixing the python scripts with shebangtron..."
 export SHTRON_PYTHON=${PYTHON}
-curl -sSL https://raw.githubusercontent.com/lsst/shebangtron/master/shebangtron | ${PYTHON}
+curl -sSL https://raw.githubusercontent.com/lsst/shebangtron/main/shebangtron | ${PYTHON}
 echo " "
 
 # clean out .pyc files made by eups installs
