@@ -142,7 +142,7 @@ fi
 # in conda build for large prefixes this always has /usr/bin/env python
 echo "Fixing the python scripts with shebangtron..."
 export SHTRON_PYTHON="${CONDA_PREFIX}/bin/python"
-curl -sSL https://raw.githubusercontent.com/lsst/shebangtron/master/shebangtron | ${PYTHON}
+curl -sSL https://raw.githubusercontent.com/lsst/shebangtron/main/shebangtron | ${CONDA_PREFIX}/bin/python
 echo " "
 
 echo "Cleaning up extra data..."
