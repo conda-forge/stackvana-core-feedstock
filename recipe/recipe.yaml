@@ -33,7 +33,7 @@ build:
   skip:
     - win
     - match(python, "!=${{ lsst_pyver }}")
-  number: 0
+  number: 1
   merge_build_and_host_envs: true
 
 outputs:
