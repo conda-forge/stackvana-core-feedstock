@@ -76,7 +76,7 @@ outputs:
           run:
             - python
             - rubin-env-nosysroot =${{ rubin_env }}
-            - mamba
+            - micromamba
 
 about:
   homepage: https://github.com/beckermr/stackvana-core
