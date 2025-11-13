@@ -10,7 +10,7 @@
 #
 context:
   name: stackvana-core
-  version: "0.2025.40"
+  version: "0.2025.45"
   raw_major_version: '${{ (version | split("."))[0] }}'
   raw_minor_version: '${{ (version | split("."))[1] }}'
   raw_patch_version: '${{ (version | split("."))[2] }}'
@@ -25,13 +25,13 @@ recipe:
 
 source:
   url: https://eups.lsst.cloud/stack/src/tags/${{ dm_tag }}.list
-  sha256: 0dc3553cde005ead150677f51170511b2dedb44a44d62ca00ffa5ef728698cf3
+  sha256: d9b7f2c6b89d856c5f393a26fea885ddb6bb16a862d87c7a6474d8b9a9d0bc30
 
 build:
   skip:
     - win
     - match(python, "!=${{ lsst_pyver }}")
-  number: 1
+  number: 0
   merge_build_and_host_envs: true
 
 outputs:
