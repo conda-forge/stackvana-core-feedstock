@@ -1,4 +1,4 @@
 rubin_env:
   - "12"
 lsst_pyver:
-  - "3.12"
+  - "3.13"
