@@ -68,7 +68,7 @@ outputs:
         # but defer the versions to rubin-env
         - ${{ c_compiler }}_${{ target_platform }} *
         - ${{ cxx_compiler }}_${{ target_platform }} *
-        - ${{ fotran_compiler }}_${{ target_platform }} *
+        - ${{ fortran_compiler }}_${{ target_platform }} *
         - ${{ rust_compiler }}_${{ target_platform }} *
         - ${{ stdlib('c') }}
         - if: osx
