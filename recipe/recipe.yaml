@@ -31,7 +31,7 @@ build:
   skip:
     - win
     - match(python, "!=${{ lsst_pyver }}")
-  number: 0
+  number: 1
   merge_build_and_host_envs: true
 
 outputs:
@@ -63,7 +63,16 @@ outputs:
           LSST_PYVER: ${{ lsst_pyver }}
 
     requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ compiler('fortran') }}
+        - ${{ stdlib('c') }}
       host:
+        - if: osx
+          then: llvm-openmp
+        - if: linux
+          then: libgomp
         - python
         - rubin-env-nosysroot =${{ rubin_env }}
       run:
