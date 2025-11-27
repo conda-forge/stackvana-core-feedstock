@@ -72,7 +72,7 @@ outputs:
         - ${{ rust_compiler }}_${{ target_platform }} *
         - ${{ stdlib('c') }}
         - if: osx
-          then: llvm-openmp *
+          then: llvm-openmp
         - if: linux
           then: libgomp
         - python
