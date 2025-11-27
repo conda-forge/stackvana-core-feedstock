@@ -63,14 +63,16 @@ outputs:
           LSST_PYVER: ${{ lsst_pyver }}
 
     requirements:
-      build:
-        - ${{ compiler('c') }}
-        - ${{ compiler('cxx') }}
-        - ${{ compiler('fortran') }}
-        - ${{ stdlib('c') }}
       host:
+        # these pins are here so we get the proper run exports
+        # but defer the versions to rubin-env
+        - ${{ c_compiler }}_${{ target_platform }} *
+        - ${{ cxx_compiler }}_${{ target_platform }} *
+        - ${{ fotran_compiler }}_${{ target_platform }} *
+        - ${{ rust_compiler }}_${{ target_platform }} *
+        - ${{ stdlib('c') }}
         - if: osx
-          then: llvm-openmp
+          then: llvm-openmp *
         - if: linux
           then: libgomp
         - python
