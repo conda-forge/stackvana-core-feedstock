@@ -31,7 +31,7 @@ build:
   skip:
     - win
     - match(python, "!=${{ lsst_pyver }}")
-  number: 0
+  number: 1
   merge_build_and_host_envs: true
 
 outputs:
@@ -64,6 +64,17 @@ outputs:
 
     requirements:
       host:
+        # these pins are here so we get the proper run exports
+        # but defer the versions to rubin-env
+        - ${{ c_compiler }}_${{ target_platform }} *
+        - ${{ cxx_compiler }}_${{ target_platform }} *
+        - ${{ fortran_compiler }}_${{ target_platform }} *
+        - ${{ rust_compiler }}_${{ target_platform }} *
+        - ${{ stdlib('c') }}
+        - if: osx
+          then: llvm-openmp
+        - if: linux
+          then: libgomp
         - python
         - rubin-env-nosysroot =${{ rubin_env }}
       run:
