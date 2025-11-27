@@ -12,6 +12,8 @@ cxx_compiler:
 - gxx
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
+fortran_compiler:
+- gfortran
 lsst_pyver:
 - '3.13'
 pin_run_as_build:
