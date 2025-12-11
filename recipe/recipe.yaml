@@ -10,7 +10,7 @@
 #
 context:
   name: stackvana-core
-  version: "0.2025.49"
+  version: "0.2025.50"
   raw_major_version: '${{ (version | split("."))[0] }}'
   raw_minor_version: '${{ (version | split("."))[1] }}'
   raw_patch_version: '${{ (version | split("."))[2] }}'
@@ -25,7 +25,7 @@ recipe:
 
 source:
   url: https://eups.lsst.cloud/stack/src/tags/${{ dm_tag }}.list
-  sha256: c749eb01e02c07c1da8ff325654f072ebf00558ea5143c30fd8eb7a30d528d83
+  sha256: a573c3009092a41c330434f90f3c9cf4133a05b9bb193fc4afd97e1e74494ad6
 
 build:
   skip:
