@@ -91,7 +91,6 @@ outputs:
             - python
             - rubin-env-nosysroot =${{ rubin_env }}
             - micromamba
-            - conda
 
 about:
   homepage: https://github.com/beckermr/stackvana-core

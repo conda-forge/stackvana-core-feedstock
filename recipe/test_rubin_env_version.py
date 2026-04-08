@@ -7,7 +7,7 @@ from conda.models import VersionOrder
 
 def _get_curr_rubin_env_version():
     pkgs = json.loads(subprocess.run(
-        ["conda", "list", "--json"],
+        ["micromamba", "list", "--json"],
         check=True,
         text=True,
         capture_output=True
