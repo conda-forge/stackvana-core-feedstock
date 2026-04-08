@@ -2,7 +2,7 @@ import json
 import subprocess
 import sys
 
-from conda.models import VersionOrder
+from conda.models.version import VersionOrder
 
 
 def _get_curr_rubin_env_version():
