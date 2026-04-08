@@ -2,7 +2,7 @@ import json
 import subprocess
 import sys
 
-from conda.models import VersionOrder
+from packaging.verion import parse
 
 
 def _get_curr_rubin_env_version():
@@ -14,7 +14,7 @@ def _get_curr_rubin_env_version():
     ).stdout)
     for pkg in pkgs:
         if pkg["name"] == "rubin-env-nosysroot" and "dev" not in pkg["version"]:
-            return VersionOrder(pkg["version"])
+            return parse(pkg["version"])
 
     raise RuntimeError("Could not find current `rubin-env-nosysroot` version!")
 
@@ -30,9 +30,9 @@ def _get_latest_rubin_env_version():
     for pkg in pkgs:
          if pkg["name"] == "rubin-env-nosysroot" and "dev" not in pkg["version"]:
             if max_version is None:
-                max_version = VersionOrder(pkg["version"])
-            elif VersionOrder(pkg["version"]) > max_version:
-                max_version = VersionOrder(pkg["version"])
+                max_version = parse(pkg["version"])
+            elif parse(pkg["version"]) > max_version:
+                max_version = parse(pkg["version"])
 
     if max_version is None:
         raise RuntimeError("Could not find latest `rubin-env-nosysroot` version!")
