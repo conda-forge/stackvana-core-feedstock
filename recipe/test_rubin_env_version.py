@@ -2,7 +2,7 @@ import json
 import subprocess
 import sys
 
-from packaging.verion import parse
+from packaging.version import parse
 
 
 def _get_curr_rubin_env_version():
