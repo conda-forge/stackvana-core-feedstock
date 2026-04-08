@@ -25,7 +25,7 @@ def _get_latest_rubin_env_version():
         check=True,
         text=True,
         capture_output=True
-    ).stdout)["result"]
+    ).stdout)["result"]["pkgs"]
     max_version = None
     for pkg in pkgs:
          if pkg["name"] == "rubin-env-nosysroot" and "dev" not in pkg["version"]:
