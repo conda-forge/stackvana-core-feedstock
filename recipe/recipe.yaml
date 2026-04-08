@@ -83,6 +83,9 @@ outputs:
 
     tests:
       - script: run_test_impl.sh
+        files:
+          recipe:
+            - test_rubin_env_version.py
         requirements:
           run:
             - python
