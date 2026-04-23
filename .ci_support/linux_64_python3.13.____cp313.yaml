@@ -23,7 +23,7 @@ pin_run_as_build:
 python:
 - 3.13.* *_cp313
 rubin_env:
-- '12'
+- '13'
 rust_compiler:
 - rust
 target_platform:
