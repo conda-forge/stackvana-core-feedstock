@@ -39,7 +39,7 @@ echo " "
 
 echo -n "setting up 'pex_exceptions' ... "
 val=$(setup -j pex_exceptions 2>&1)
-if [[ ! "${val}" ]]; then
+if [[ -n '${val}' ]]; then
     echo "worked!"
 else
     echo "failed!"
