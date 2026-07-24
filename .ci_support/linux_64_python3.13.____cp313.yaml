@@ -11,7 +11,7 @@ channel_targets:
 cxx_compiler:
 - gxx
 docker_image:
-- quay.io/condaforge/linux-anvil-x86_64:alma9
+- quay.io/condaforge/linux-anvil-x86_64:alma10
 fortran_compiler:
 - gfortran
 lsst_pyver:
