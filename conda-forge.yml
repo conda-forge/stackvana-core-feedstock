@@ -1,5 +1,7 @@
-azure:
-  free_disk_space: true
+workflow_settings:
+  free_disk_space: quick
+provider:
+  osx_arm64: azure
 conda_forge_output_validation: true
 bot:
   automerge: true
