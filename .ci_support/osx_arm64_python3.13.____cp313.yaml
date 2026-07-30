@@ -21,7 +21,7 @@ llvm_openmp:
 lsst_pyver:
 - '3.13'
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -33,4 +33,4 @@ rubin_env:
 rust_compiler:
 - rust
 target_platform:
-- osx-64
+- osx-arm64
