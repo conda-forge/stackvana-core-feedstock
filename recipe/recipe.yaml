@@ -32,7 +32,7 @@ build:
     - win
     - match(python, "!=${{ lsst_pyver }}")
     - osx and x86_64
-  number: 0
+  number: 1
   merge_build_and_host_envs: true
 
 outputs:
