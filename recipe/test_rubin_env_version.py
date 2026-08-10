@@ -12,6 +12,8 @@ def _get_curr_rubin_env_version():
         text=True,
         capture_output=True
     ).stdout)
+    if "packages" in pkgs:
+        pkgs = pkgs["packages"]
     for pkg in pkgs:
         if pkg["name"] == "rubin-env-nosysroot" and "dev" not in pkg["version"]:
             return parse(pkg["version"])
