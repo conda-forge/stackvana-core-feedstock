@@ -175,7 +175,8 @@ compgen -G "${EUPS_PATH}/*/*/*/share/man/*" | xargs rm -rf
 if [[ `uname -s` == "Linux" ]]; then
     echo "removing debug symbols..."
     pushd ${EUPS_PATH}
-    find . -type f -name "*.so" -print0 | xargs -0 ${STRIP} --strip-debug
+    find . -type f -name "*.so" -print0
+    find . -type f -name "*.so" -print0 | xargs -0 -I {} ${STRIP} --strip-debug {}
     popd
 fi
 
