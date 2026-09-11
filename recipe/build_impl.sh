@@ -171,6 +171,14 @@ compgen -G "${EUPS_PATH}/*/*/*/ups/build.log" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/share/doc/*" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/share/man/*" | xargs rm -rf
 
+# remove debug symbols on linux
+if [[ `uname -s` == "Linux" ]]; then
+    echo "removing debug symbols..."
+    pushd ${EUPS_PATH}
+    find . -type f -name "*.so" -print0 | xargs -0 ${STRIP} --strip-debug
+    popd
+fi
+
 # maybe this?
 echo "=================== eups list ==================="
 eups list -s --topological -D --raw 2>/dev/null
