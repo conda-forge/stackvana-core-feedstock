@@ -171,13 +171,11 @@ compgen -G "${EUPS_PATH}/*/*/*/ups/build.log" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/share/doc/*" | xargs rm -rf
 compgen -G "${EUPS_PATH}/*/*/*/share/man/*" | xargs rm -rf
 
-# remove debug symbols on linux
-if [[ `uname -s` == "Linux" ]]; then
-    echo "removing debug symbols..."
-    pushd ${EUPS_PATH}
-    find . -type f -name "*.so" -print0 | xargs -0 -I {} ${STRIP} --strip-debug {}
-    popd
-fi
+# remove debug symbols
+echo "removing debug symbols..."
+pushd ${EUPS_PATH}
+find . -type f -name "*.so" -print0 | xargs -0 -I {} ${STRIP} -S {}
+popd
 
 # remove the global tags file since it tends to leak across envs
 rm -f "${EUPS_PATH}/ups_db/global.tags"
