@@ -175,6 +175,7 @@ compgen -G "${EUPS_PATH}/*/*/*/share/man/*" | xargs rm -rf
 echo "removing debug symbols..."
 pushd ${EUPS_PATH}
 find . -type f -name "*.so" -print0 | xargs -0 -I {} ${STRIP} -S {}
+find . -type f -name "*.${SHLIB_EXT}" -print0 | xargs -0 -I {} ${STRIP} -S {}
 popd
 
 # remove the global tags file since it tends to leak across envs
