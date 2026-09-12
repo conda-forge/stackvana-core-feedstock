@@ -119,8 +119,7 @@ curl -fL --retry 3 -sS -o "$callback_folder/$hook" "$hook_url"
 
 echo "
 Building sconsUtils..."
-eups distrib install -v -t ${LSST_TAG} afw
-# sconsUtils
+eups distrib install -v -t ${LSST_TAG} sconsUtils
 
 echo "Patching sconsUtils for debugging..."
 if [[ `uname -s` == "Darwin" ]]; then
@@ -176,10 +175,7 @@ compgen -G "${EUPS_PATH}/*/*/*/share/man/*" | xargs rm -rf
 if [[ `uname -s` == "Linux" ]]; then
     echo "removing debug symbols..."
     pushd ${EUPS_PATH}
-    find . -type f -name "*.so" -print0 | xargs -0 -I {} ls -lah {}
     find . -type f -name "*.so" -print0 | xargs -0 -I {} ${STRIP} --strip-debug {}
-    echo "after removing debug symbols..."
-    find . -type f -name "*.so" -print0 | xargs -0 -I {} ls -lah {}
     popd
 fi
 
