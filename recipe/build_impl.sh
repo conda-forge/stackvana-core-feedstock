@@ -119,7 +119,8 @@ curl -fL --retry 3 -sS -o "$callback_folder/$hook" "$hook_url"
 
 echo "
 Building sconsUtils..."
-eups distrib install -v -t ${LSST_TAG} sconsUtils
+eups distrib install -v -t ${LSST_TAG} pex_exceptions
+# sconsUtils
 
 echo "Patching sconsUtils for debugging..."
 if [[ `uname -s` == "Darwin" ]]; then
