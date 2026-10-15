@@ -15,15 +15,15 @@ docker_image:
 fortran_compiler:
 - gfortran
 lsst_pyver:
-- '3.13'
+- '3.14'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.13.* *_cp313
+- 3.14.* *_cp314
 rubin_env:
-- '13'
+- '14'
 rust_compiler:
 - rust
 target_platform:

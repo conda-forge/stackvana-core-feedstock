@@ -19,7 +19,7 @@ fortran_compiler:
 llvm_openmp:
 - '21'
 lsst_pyver:
-- '3.13'
+- '3.14'
 macos_machine:
 - arm64-apple-darwin20.0.0
 pin_run_as_build:
@@ -27,9 +27,9 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.13.* *_cp313
+- 3.14.* *_cp314
 rubin_env:
-- '13'
+- '14'
 rust_compiler:
 - rust
 target_platform:
