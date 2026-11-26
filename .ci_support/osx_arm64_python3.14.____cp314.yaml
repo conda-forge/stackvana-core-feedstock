@@ -15,7 +15,7 @@ cxx_compiler:
 fortran_compiler:
 - gfortran
 llvm_openmp:
-- '21'
+- '22'
 lsst_pyver:
 - '3.14'
 macos_machine:
